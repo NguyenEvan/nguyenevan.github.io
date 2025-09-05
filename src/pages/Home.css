@@ -48,7 +48,9 @@ html, body, .site{
 .portrait{
   display:block;
   width:100%;
-  height:auto;
+   height: clamp(220px, 35vw, 420px); 
+  /* height: 400px; */
+  /* height:auto; */
   object-fit:cover;
   filter: grayscale(1) contrast(1.1);
 }

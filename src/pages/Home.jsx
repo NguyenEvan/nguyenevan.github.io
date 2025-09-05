@@ -9,7 +9,7 @@ export default function Home() {
           {/* Replace src with your own image (ASCII portrait or photo). */}
           <img
             className="portrait"
-            src="/portrait-ascii.png"
+            src="/P1020061.jpg"
             alt="Evan Nguyen portrait"
           />
         </div>
