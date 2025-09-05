@@ -1,0 +1,219 @@
+/* Same-font feel as the screenshot: one elegant serif everywhere. */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap');
+
+:root{
+  --ink:#111;
+  --muted:#6b6b6b;
+  --border:#e8e8e8;
+  --accent:#0d0d0d;
+  --maxw:1200px;
+}
+
+*{ box-sizing:border-box; }
+
+html, body, .site{
+  margin:0;
+  padding:0;
+  color:var(--ink);
+  background:#fff;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif; /* single serif like the template */
+  line-height:1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.site{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:2rem 1.25rem 6rem;
+}
+
+/* Masthead (two-column split) */
+.masthead{
+  display:grid;
+  grid-template-columns: minmax(260px, 560px) 1fr;
+  gap:4rem;
+  align-items:center;
+  border:1px solid var(--border);
+  padding:2rem;
+  margin:1rem 0 3rem;
+}
+
+.masthead-media{
+  border:1px solid var(--border);
+  background:#fafafa;
+  padding:.5rem;
+}
+
+.portrait{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  filter: grayscale(1) contrast(1.1);
+}
+
+/* Right column */
+.masthead-title{
+  margin:0 0 .75rem;
+  font-weight:900;
+  letter-spacing:-.01em;
+  line-height:1.1;
+  /* big, responsive headline like the screenshot */
+  font-size:clamp(2.4rem, 5.8vw, 4.8rem);
+}
+
+.masthead-kicker{
+  margin:.25rem 0 1.5rem;
+  font-weight:800;
+  line-height:1.25;
+  font-size:clamp(1.3rem, 2.2vw, 2rem);
+}
+
+.masthead-lede{
+  margin:0 0 1.25rem;
+  max-width:60ch;            /* nice readable line length */
+  font-size:clamp(1.05rem, 1.4vw, 1.25rem);
+  color:var(--muted);
+}
+
+/* Primary call-to-action styled like a tasteful link/button */
+.cta-btn{
+  display:inline-block;
+  margin-top:.5rem;
+  padding:.7rem 1.1rem;
+  border:1px solid var(--ink);
+  border-radius:6px;
+  text-decoration:none;
+  color:var(--ink);
+  font-weight:700;
+  transition: transform .06s ease, background .2s ease;
+}
+.cta-btn:hover{ background:#f5f5f5; transform: translateY(-1px); }
+
+/* Sections */
+.section{
+  padding:2.25rem 0;
+  border-top:1px solid var(--border);
+}
+
+.section-title{
+  margin:0 0 .75rem;
+  font-size:clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight:800;
+}
+
+.section p{
+  max-width:70ch;
+  margin:.5rem 0 0;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+/* Projects */
+.project-list{
+  list-style:none;
+  padding:0;
+  margin:1rem 0 0;
+  display:grid;
+  gap:1rem;
+}
+.project-item{
+  padding:1rem 1rem 1.1rem;
+  border:1px solid var(--border);
+}
+.project-item strong{
+  display:block;
+  font-weight:800;
+  margin-bottom:.25rem;
+}
+.center{ text-align:center; margin-top:1.25rem; }
+.link-arrow{
+  text-decoration:none;
+  font-weight:700;
+  color:var(--accent);
+  border-bottom:1px solid currentColor;
+}
+.link-arrow:hover{ opacity:.85; }
+
+/* Contact */
+.contact-btn{
+  display:inline-block;
+  margin-top:.75rem;
+  text-decoration:none;
+  font-weight:800;
+  border-bottom:2px solid currentColor;
+  color:var(--accent);
+}
+
+/* Responsive: stack columns like the screenshot on small screens */
+@media (max-width: 860px){
+  .masthead{
+    grid-template-columns: 1fr;
+    gap:2rem;
+    padding:1.25rem;
+  }
+  .masthead-media{ order:1; }
+  .masthead-copy{ order:2; }
+}
+
+/* — Contact (enhanced) — */
+.contact { padding-bottom: 2.5rem; }
+
+.contact-intro{
+  margin: .25rem 0 1.25rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 1.25rem 2rem;
+}
+
+/* Column separators (fade in the middle for a refined look) */
+.contact-item{
+  position: relative;
+  padding: 0;
+}
+.contact-item:not(:first-child)::before{
+  content:"";
+  position:absolute;
+  left:0; top:.25rem; bottom:.25rem;
+  width:1px;
+  background: linear-gradient(to bottom, transparent, var(--border), transparent);
+}
+
+.contact-item dt{
+  font-weight: 800;                 /* strong label */
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.contact-item dd{ margin: .4rem 0 0; }
+
+.contact-value{
+  font-weight: 900;                 /* bold value for contrast */
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.contact-link{
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 2px solid rgba(0,0,0,.15); /* subtle baseline */
+  padding-bottom: 2px;
+  transition: border-color .2s ease, opacity .2s ease;
+}
+.contact-link:hover{ border-color: currentColor; opacity: .9; }
+
+/* Stack nicely on small screens; switch to horizontal separators */
+@media (max-width: 860px){
+  .contact-grid{ grid-template-columns: 1fr; }
+  .contact-item{ padding: 1rem 0; }
+  .contact-item:not(:first-child)::before{
+    left:0; right:0; width:auto; height:1px; top:0;
+    background: var(--border);
+  }
+}
